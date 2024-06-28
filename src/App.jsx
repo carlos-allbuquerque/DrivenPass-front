@@ -1,10 +1,15 @@
-import GlobalStyle from "./resetCSS";
+import GlobalStyles from "./globalStyles";
+import Router from "./router/index.jsx";
+import { Toaster } from "react-hot-toast";
 
 function App() {
 
   return (
     <>
-      <GlobalStyle />
+      <Toaster position="top-right"/>
+      <GlobalStyles />
+      <Router />
+      
     </>
   );
 }

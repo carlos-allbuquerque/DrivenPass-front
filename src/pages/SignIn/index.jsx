@@ -2,7 +2,7 @@ import * as S from "./styles";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import handleSignIn from "../../utils/handleSignIn";
-import logoIcon from "../../assets/Vector.svg";
+import logoIcon from "../../assets/lockerIcon.svg";
 import logoName from "../../assets/DrivenPass.svg";
 import userContext from "../../hooks/userContext";
 

@@ -21,10 +21,12 @@ export default function SignIn() {
           <S.Icon src={logoIcon}></S.Icon>
           <S.Text src={logoName}></S.Text>
         </S.Logo>
-        <S.Form onSubmit={
+        <S.Form  onSubmit={
           async (e) => {
             const token = await handleSignIn(e, userData);
-            await setUser(token);
+            console.log(token)
+            setUser(token);
+            console.log(user);
             if (token) {
               navigate("/home");
             }

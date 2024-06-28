@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Page = styled.div`
   height: 100vh;
-
+  margin-top: 10rem;
 `;
 
 export const Section = styled.div`

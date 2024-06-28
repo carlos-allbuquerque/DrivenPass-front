@@ -11,7 +11,8 @@ export default async function handleSignIn(e, userData) {
     SignInSchema.parse(userData);
 
     const r = await axios.post(url, userData);
-    toast.success("Cadastro realizado com sucesso.");
+    toast.success("Login realizado com sucesso.");
+    console.log(r.data);
     return r.data;
   } catch (error) {
     if (error instanceof ZodError) {

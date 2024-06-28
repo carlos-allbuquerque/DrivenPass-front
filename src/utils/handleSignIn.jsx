@@ -1,18 +1,18 @@
 import axios, { AxiosError } from "axios";
-import { SignUpSchema } from "../schemas/authSchema";
+import { SignInSchema } from "../schemas/authSchema";
 import toast from "react-hot-toast";
 import { ZodError } from "zod";
 
-export default async function handleSignUp(e, newUserData
-) {
+export default async function handleSignIn(e, userData) {
   e.preventDefault();
-  const url = `${import.meta.env.VITE_BASE_URL}/signup`;
+  const url = `${import.meta.env.VITE_BASE_URL}/signin`;
+  
   try {
-    SignUpSchema.parse(newUserData);
+    SignInSchema.parse(userData);
 
-    await axios.post(url, newUserData);
-
+    const r = await axios.post(url, userData);
     toast.success("Cadastro realizado com sucesso.");
+    return r.data;
   } catch (error) {
     if (error instanceof ZodError) {
       return error.errors.forEach((e) => toast.error(e.message));
@@ -24,7 +24,7 @@ export default async function handleSignUp(e, newUserData
           toast.error("Credenciais inválidas! Por favor cheque os dados inseridos.");
           break;
         case 409:
-          toast.error("Esse email já está em uso.");
+          toast.error("Credenciais inválidas! Por favor cheque os dados inseridos.");
           break;
         default:
           toast.error("Algo deu errado. Por favor tente novamente.");
